@@ -7,4 +7,8 @@
 <pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
 <path>/horseshoe/src</path>
 </pydev_pathproperty>
+<pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
+<path>C:\Users\sdamaraj\python\kivy\kivy</path>
+<path>C:\Users\sdamaraj\python\kivy\Python\Lib</path>
+</pydev_pathproperty>
 </pydev_project>
