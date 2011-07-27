@@ -23,7 +23,16 @@ def buttonReleased(params):
     jsonString = theJsonUrl.read()
     theJsonUrl.close()
     print jsonString
+    parsed = json.loads(jsonString)
+    print "Done"
+    items = parsed["data"]["children"]
     
+    for item in items:
+        itemUrl = item["data"]["url"]
+        if itemUrl.find('.png') == -1:
+            print itemUrl + ".jpg"
+        else:
+            print itemUrl
 
 class MyClass(App):
     '''
