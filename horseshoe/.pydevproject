@@ -2,12 +2,12 @@
 <?eclipse-pydev version="1.0"?>
 
 <pydev_project>
-<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">C:\Users\sdamaraj\python\kivy\Python\python.exe</pydev_property>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">Default</pydev_property>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.7</pydev_property>
 <pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
 <path>/horseshoe/src</path>
 </pydev_pathproperty>
 <pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
-<path>C:\Users\sdamaraj\python\kivy\kivy</path>
+<path>C:\Users\muralig\Kivy-1.0.7-w32\kivy</path>
 </pydev_pathproperty>
 </pydev_project>

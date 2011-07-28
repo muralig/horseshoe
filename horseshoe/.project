@@ -3,6 +3,7 @@
 	<name>horseshoe</name>
 	<comment></comment>
 	<projects>
+		<project>kivy</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
