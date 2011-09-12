@@ -7,21 +7,15 @@ kivy.require('1.0.7')
 
 from kivy.app import App
 from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image import AsyncImage
 from kivy.uix.scatter import Scatter
-from kivy.properties import BooleanProperty
 from kivy.uix.widget import Widget
 
 
 urlBase = "http://www.reddit.com/r/" #fffffffuuuuuuuuuuuu/top/.json"
 
 class HorseShoe(App):
-    '''
-    classdocs
-    '''
-    
+
     def getJSONIterator(self, subReddit):
         theJsonUrl = urllib.urlopen(urlBase + subReddit + '/top/.json')
         jsonString = theJsonUrl.read()
@@ -48,7 +42,7 @@ class HorseShoe(App):
         print "Pressed Button", params
     
         
-    def buttonReleased(self, params):
+    def nextImage(self, params):
         
         print "Relased Button", params
         if not hasattr(self, 'items'):
@@ -71,47 +65,25 @@ class HorseShoe(App):
         self.image.source = itemUrl
         
         
-    def build(self):       
-        '''
-        s = KivyImageScatter()
+    def build(self):               
+        # TODO:  add a layout like this (that actually works)
+        #self.layout = BoxLayout(orientation='vertical', spacing=10)
+        
         col = Widget()
-        col.add_widget(s)
-        return col
-        '''
-        '''
-        self.layout = BoxLayout(orientation='vertical', spacing=10)
-        self.image = AsyncImage(allow_stretch=True, keep_ratio=False)
-        
-        scatter = Scatter(do_rotation=False, auto_bring_to_front=False, size_hint=(1.0, 0.9))
-        #self.image.bind(texture_size=scatter.setter('size'))
-        scatter.add_widget(self.image)
-        
-        self.layout.add_widget(scatter)
-        
-        button = Button(text='Horseshoe', size_hint=(1.0, 0.1))
-        button.bind(on_press=self.buttonPressed)
-        button.bind(on_release=self.buttonReleased)                
-        
-        self.layout.add_widget(button)
-        
-        return self.layout
-        '''
         
         self.image = AsyncImage(allow_stretch=True, keep_ratio=False, size=(480,480))
-        col = Widget()
         
-        #button = Button(text='Horseshoe', size_hint=(1.0, 0.1))
-        self.buttonReleased(self)     
+        # call this function once to load the first image
+        self.nextImage(self)     
         
         scatter = Scatter(do_rotation=False, auto_bring_to_front=False, size=self.image.get_norm_image_size())
-        #self.image.bind(texture_size=scatter.setter('size'))
         scatter.add_widget(self.image)
 
         col.add_widget(scatter)
 
         button = Button(text='Next', size_hint=(1.0, 0.1))
         button.bind(on_press=self.buttonPressed)
-        button.bind(on_release=self.buttonReleased)                
+        button.bind(on_release=self.nextImage)                
         col.add_widget(button)
         
         return col
